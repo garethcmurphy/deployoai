@@ -10,3 +10,5 @@ metadata:
 data:
   configuration.ts: |-
 {{ .Files.Get "envfiles/configuration.ts" | indent 4 }}
+  mongo-dao.ts: |-
+{{ .Files.Get "envfiles/mongo-dao.ts" | indent 4 }}
