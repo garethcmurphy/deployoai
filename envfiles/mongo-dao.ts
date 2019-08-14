@@ -23,8 +23,9 @@ export class MongoConnector {
     }*/
     const url = "mongodb://mongodb:27017";
 
-    MongoClient.connect("mongodb://mongodb:27017", (err, client) => {
+    MongoClient.connect(url, (err, client) => {
       if (err) {
+        console.log(url);
         logger.error("failed to connect", err);
         this.db = null;
       }
