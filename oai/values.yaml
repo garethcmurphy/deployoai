@@ -8,7 +8,7 @@ image:
   pullPolicy: Always
 service:
   name: oai
-  type: ClusterIP
+  type: NodePort
   externalPort: 80
   internalPort: 3000
 ingress:
