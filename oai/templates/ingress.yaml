@@ -26,7 +26,7 @@ spec:
     - host: {{ $host }}
       http:
         paths:
-          - path: /oai
+          - path: /scicat
             backend:
               serviceName: {{ $serviceName }}
               servicePort: {{ $servicePort }}
