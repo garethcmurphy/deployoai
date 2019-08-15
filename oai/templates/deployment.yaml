@@ -27,11 +27,11 @@ spec:
             - containerPort: {{ .Values.service.internalPort }}
           livenessProbe:
             httpGet:
-              path: /
+              path: /scicat/oai?verb=ListMetadataFormats
               port: {{ .Values.service.internalPort }}
           readinessProbe:
             httpGet:
-              path: /
+              path: /scicat/oai?verb=ListMetadataFormats
               port: {{ .Values.service.internalPort }}
           resources:
 {{ toYaml .Values.resources | indent 12 }}
