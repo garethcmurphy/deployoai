@@ -2,15 +2,10 @@
 git pull
 helm del --purge oai
 
-
-if  [ "$(hostname)" == "scicat01.esss.lu.se" ]; then
-    envarray=(ess)
+if [ "$(hostname)" == "scicat01.esss.lu.se" ]; then
     INGRESS_NAME="-f ./oai/lund.yaml"
-    BUILD="false"
-elif  [ "$(hostname)" == "k8-lrg-serv-prod.esss.dk" ]; then
-    envarray=(dmscprod)
+elif [ "$(hostname)" == "k8-lrg-serv-prod.esss.dk" ]; then
     INGRESS_NAME="-f ./oai/dmscprod.yaml"
-    BUILD="false"
 fi
 
 helm install oai --name oai --namespace dev ${INGRESS_NAME}
