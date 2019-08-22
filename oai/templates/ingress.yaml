@@ -37,4 +37,11 @@ spec:
             backend:
               serviceName: {{ $serviceName }}
               servicePort: {{ $servicePort }}
+    - host: scicat.esss.se
+      http:
+        paths:
+          - path: /scicat
+            backend:
+              serviceName: {{ $serviceName }}
+              servicePort: {{ $servicePort }}
 {{- end -}}
