@@ -30,6 +30,10 @@ spec:
             backend:
               serviceName: {{ $serviceName }}
               servicePort: {{ $servicePort }}
+          - path: /panosc
+            backend:
+              serviceName: {{ $serviceName }}
+              servicePort: {{ $servicePort }}
     - host: scitest.esss.lu.se
       http:
         paths:
@@ -37,10 +41,18 @@ spec:
             backend:
               serviceName: {{ $serviceName }}
               servicePort: {{ $servicePort }}
+          - path: /panosc
+            backend:
+              serviceName: {{ $serviceName }}
+              servicePort: {{ $servicePort }}
     - host: scicat.esss.se
       http:
         paths:
           - path: /scicat
+            backend:
+              serviceName: {{ $serviceName }}
+              servicePort: {{ $servicePort }}
+          - path: /panosc
             backend:
               serviceName: {{ $serviceName }}
               servicePort: {{ $servicePort }}
