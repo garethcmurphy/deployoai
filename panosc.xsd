@@ -1,36 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:panosc="https://scicat.esss.se/panosc" panosc:schemaLocation="https://github.com/panosc-eu/fair-data-api/blob/master/panosc.xsd">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-    <xs:annotation>
-        <xs:documentation>
-        Schema for panosc
-    </xs:documentation>
-    </xs:annotation>
-
-    <xs:complexType name="measurementtype">
+    <xs:complexType name="measurement">
         <xs:sequence>
-            <xs:element name="value" type="xs:float" />
-            <xs:element name="units" type="xs:string" />
+            <xs:element name="value" type="xs:double" />
+            <xs:element name="units" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
-<xs:element name="panosc" type="panosctype"></xs:element>
-        <xs:complexType name="panosctype">
-            <xs:sequence>
-                <xs:element name="id" minOccurs="1" maxOccurs="1" type="xs:string" />
-                <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string" />
-                <xs:element name="owner" minOccurs="0" maxOccurs="1" type="xs:string" />
-                <xs:element name="contactEmail" minOccurs="0" maxOccurs="1" type="xs:string" />
-                <xs:element name="orcidOfOwner" minOccurs="0" maxOccurs="1" type="xs:string" />
-                <xs:element name="license" minOccurs="0" maxOccurs="1" type="xs:string" />
-                <xs:element name="embargoEndDate" minOccurs="0" maxOccurs="1" type="xs:string" />
-                <xs:element name="startDate" minOccurs="0" maxOccurs="1" type="xs:string" />
-                <xs:element name="path" minOccurs="0" maxOccurs="1" type="xs:string" />
-                <xs:element name="technique" minOccurs="0" maxOccurs="1" type="xs:string" />
-                <xs:element name="sampleName" minOccurs="0" maxOccurs="1" type="xs:string" />
-                <xs:element name="chemicalFormula" minOccurs="0" maxOccurs="1" type="xs:string" />
-                <xs:element name="size" minOccurs="0" maxOccurs="1" type="measurementtype" />
-                <xs:element name="wavelength" minOccurs="0" maxOccurs="1" type="measurementtype" />
-            </xs:sequence>
-        </xs:complexType>
+
+    <xs:complexType name="panosctype">
+        <xs:sequence>
+            <xs:element name="pid" type="xs:string" />
+            <xs:element name="name" minOccurs="0" maxOccurs="1" type="xs:string" />
+            <xs:element name="owner" minOccurs="0" maxOccurs="1" type="xs:string" />
+            <xs:element name="contactEmail" minOccurs="0" maxOccurs="1" type="xs:string" />
+            <xs:element name="orcidOfOwner" minOccurs="0" maxOccurs="1" type="xs:string" />
+            <xs:element name="license" minOccurs="0" maxOccurs="1" type="xs:string" />
+            <xs:element name="embargoEndDate" minOccurs="0" maxOccurs="1" type="xs:string" />
+            <xs:element name="startDate" minOccurs="0" maxOccurs="1" type="xs:string" />
+            <xs:element name="path" minOccurs="0" maxOccurs="1" type="xs:string" />
+            <xs:element name="technique" minOccurs="0" maxOccurs="1" type="xs:string" />
+            <xs:element name="sampleName" minOccurs="0" maxOccurs="1" type="xs:string" />
+            <xs:element name="chemicalFormula" minOccurs="0" maxOccurs="1" type="xs:string" />
+            <xs:element name="size" minOccurs="0" maxOccurs="1" type="measurement" />
+            <xs:element name="wavelength" type="measurement" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="panosc" type="panosctype" />
 
 </xs:schema>
